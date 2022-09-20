@@ -1,5 +1,6 @@
 *~
-./values-secret.yaml
+values-secret.yaml
+! **/values-secret.yaml
 *.swp
 *.vscode
 super-linter.log
