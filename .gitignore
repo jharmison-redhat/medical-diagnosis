@@ -3,4 +3,5 @@ values-secret.yaml
 ! **/values-secret.yaml
 *.swp
 *.vscode
+tags
 super-linter.log
