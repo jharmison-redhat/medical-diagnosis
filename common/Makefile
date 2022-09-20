@@ -2,7 +2,7 @@ NAME=$(shell basename `pwd`)
 # This is to ensure that whether we start with a git@ or https:// URL, we end up with an https:// URL
 # This is because we expect to use tokens for repo authentication as opposed to SSH keys
 TARGET_ORIGIN ?= origin
-TARGET_REPO=$(shell git remote show $(TARGET_ORIGIN) | grep Push | sed -e 's/.*URL:[[:space:]]*//' -e 's%^git@%%' -e 's%^https://%%' -e 's%:%/%' -e 's%^%https://%')
+TARGET_REPO=$(shell git remote show $(TARGET_ORIGIN) | grep Push | sed -e 's/.*URL:[[:space:]]*//' -e 's%^git@%%' -e 's%^https://%%' -e 's%:%/%' -e 's%^%https://%' -e 's/-work//')
 # git branch --show-current is also available as of git 2.22, but we will use this for compatibility
 TARGET_BRANCH=$(shell git rev-parse --abbrev-ref HEAD)
 HUBCLUSTER_APPS_DOMAIN=$(shell oc get ingresses.config/cluster -o jsonpath={.spec.domain})
@@ -53,10 +53,7 @@ validate-prereq: ## verify pre-requisites
 	@echo "OK"
 
 validate-origin: ## verify the git origin is available
-	@echo Checking repo $(TARGET_REPO) - branch $(TARGET_BRANCH)
-	@git ls-remote --exit-code --heads $(TARGET_REPO) $(TARGET_BRANCH) >/dev/null && \
-		echo "$(TARGET_REPO) - $(TARGET_BRANCH) exists" || \
-		(echo "$(TARGET_BRANCH) not found in $(TARGET_REPO)"; exit 1)
+	true
 
 # Default targets are "deploy" and "upgrade"; they can "move" to whichever install mechanism should be default.
 # legacy-deploy and legacy-upgrade should be present so that patterns don't need to depend on "deploy" and "upgrade"
