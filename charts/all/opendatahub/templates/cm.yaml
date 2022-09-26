@@ -11,4 +11,4 @@ data:
     - name: preload repos
       env:
         - name: JUPYTER_PRELOAD_REPOS
-          value: https://github.com/red-hat-data-services/xraylab_notebooks.git
+          value: https://github.com/red-hat-data-services/xraylab-notebook.git
