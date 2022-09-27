@@ -14,12 +14,12 @@ spec:
           revisionTimestamp: ''
     spec:
       containers:
-      - image: quay.io/rh-data-services/xraylab-risk-assessment:latest
+      - image: {{ .Values.imageStream.from.name }}
         ports:
         - containerPort: 5000
         env:
         - name: model_version
-          value: 'v1'
+          value: {{ .Values.imageStream.tags.name }}
         - name: AWS_ACCESS_KEY_ID
           valueFrom:
             secretKeyRef:
