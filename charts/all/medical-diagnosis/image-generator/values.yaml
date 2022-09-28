@@ -16,6 +16,9 @@ images:
   bucketBaseName: xray-source
 #
 
+imageGenerator:
+  replicas: 0
+
 #ImageStream values:
 imageStream:
   tags:
