@@ -9,8 +9,8 @@ global:
   datacenter:
     cloudProvider: aws
     storageClassName: gp2
-    region: us-east-2
-    clustername: usps1
+    region: us-west-1
+    clustername: usps2
     domain: sandbox82.opentlc.com
 
   xraylab:
