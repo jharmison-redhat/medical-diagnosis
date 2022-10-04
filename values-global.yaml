@@ -11,7 +11,7 @@ global:
     storageClassName: gp2
     region: us-east-2
     clustername: usps1
-    domain: sandbox82.opentlc.com
+    domain: sandbox1777.opentlc.com
 
   xraylab:
     namespace: "xraylab-1"
