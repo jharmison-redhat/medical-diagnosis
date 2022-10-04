@@ -24,9 +24,9 @@ kafkaSource:
 
 imageStream:
   tags:
-    name: v1
+    name: v3
   from:
-    name: registry.jharmison.com/library/xraylab-risk-assessment:v1
+    name: registry.jharmison.com/library/xraylab-risk-assessment:v3
 
 rbac:
   roles:
